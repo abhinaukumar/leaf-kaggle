@@ -25,13 +25,18 @@ def pop_layer(model):
         model.outputs = [model.layers[-1].output]
     model.built = False
 
+
+#runfile('/home/nownow/Documents/projects/imread_trial.py', wdir='/home/nownow/Documents/projects')
+
 model = convnet('vgg_16', weights_path="/home/nownow/Documents/projects/pretrained_models/vgg16_weights.h5", heatmap=False)
 
 #Skip modifications for primary testing with orignal VGG 16. Use 99 class SVM from 4096 vectors
 
-model.layers.pop()
-model.layers.pop()
-model.add(Dense(99))
-model.add(Activation("softmax"))
+#model.layers.pop()
+#model.layers.pop()
+#model.add(Dense(99))
+#model.add(Activation("softmax"))
 
 #All modified
+
+sess.run(tf.global_variables_initializer())
